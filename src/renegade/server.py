@@ -35,7 +35,7 @@ def get_message_text():
 **IP:** `{address}`
 **Players:** `{status.players.online} / {status.players.max}`
 
-**Last Updated:** `{now.strftime("%m/%d/%Y, %H:%M:%S")}`"""
+**Last Updated:** `{now.strftime("%m/%d/%Y, %H:%M:%S UTC")}`"""
 
     except:
         now = datetime.now()
@@ -44,7 +44,7 @@ def get_message_text():
 **IP:** `{address}`
 **Players:** `N/A`
 
-**Last Updated:** `{now.strftime("%m/%d/%Y, %H:%M:%S")}`"""
+**Last Updated:** `{now.strftime("%m/%d/%Y, %H:%M:%S UTC")}`"""
     finally:
         return message
 

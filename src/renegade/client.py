@@ -15,7 +15,6 @@ def timerWorker():
     shouldRun = True
     while shouldRun:
         # do thing here
-        print("Thread did something")
         bot.dispatch("update_message")
         for _ in range(get_config().update_frequency):
             if not timerQueue.empty():
@@ -24,18 +23,12 @@ def timerWorker():
                 timerQueue.task_done()
                 break
             sleep(1)
-        
-
-
-
 
 @bot.event
 async def on_ready():
     print(f'We have logged in as {bot.user}')
     # start timer thread
     timerQueue.put(True)
-    
-
 
 @bot.event
 async def on_update_message():
@@ -51,12 +44,6 @@ async def on_update_message():
     else:
         print("Editing old message")
         await message.edit(content=new_content)
-
-
-
-
-
-
 
 
 def run_bot():
