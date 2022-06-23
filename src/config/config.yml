@@ -1,0 +1,6 @@
+config:
+    update-frequency: 150           # time in seconds between updates
+    server-uri: default             # server uri to monitor. Set to 'default' to use the public ip of the host.
+    default-port: '25565'           # default port to use if none is specified in server-uri
+discord:
+    channel-id: 987178450651602984  # insert your own channel ID here by enabling developer options and right clicking on the channel
