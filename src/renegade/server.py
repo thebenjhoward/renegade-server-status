@@ -37,7 +37,7 @@ def get_message_text():
 **IP:** `{address}`
 **Players:** `{status.players.online} / {status.players.max}`
 
-**Last Updated:** {now.strftime("%m/%d/%Y, %H:%M:%S")}"""
+**Last Updated:** `{now.strftime("%m/%d/%Y, %H:%M:%S")}`"""
 
     return message
 
