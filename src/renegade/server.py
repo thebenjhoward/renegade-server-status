@@ -1,7 +1,7 @@
 from mcstatus import JavaServer
 import urllib.request
 from datetime import datetime
-from conf import get_config
+from .conf import get_config
 
 
 def get_public_ip():

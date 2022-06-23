@@ -1,6 +1,6 @@
 import functools
 import yaml, os, json
-from util import dict_property
+from .util import dict_property
 
 # default config directory if none specified in environment
 DEFAULT_CONFIG_DIR = "config"

@@ -1,9 +1,8 @@
 import threading, queue
 from time import sleep
-from conf import get_config
-from server import get_message_text
+from .conf import get_config
+from .server import get_message_text
 import discord
-import asyncio
 
 timerQueue = queue.Queue()
 
@@ -18,10 +17,14 @@ def timerWorker():
         # do thing here
         print("Thread did something")
         bot.dispatch("update_message")
-        sleep(get_config().update_frequency)
-        if not timerQueue.empty():
-            shouldRun = timerQueue.get();
-            timerQueue.task_done()
+        for _ in range(get_config().update_frequency):
+            if not timerQueue.empty():
+                shouldRun = False
+                timerQueue.get()
+                timerQueue.task_done()
+                break
+            sleep(1)
+        
 
 
 
