@@ -27,18 +27,27 @@ def get_message_text():
     else:
         address = f"{uri}:{get_config().default_port}"
     
-    # TODO: add try/catch for if server is offline
-    status = get_server_info(address)
+    try:
+        status = get_server_info(address)
+        now = datetime.now()
 
-    now = datetime.now()
-    
-
-    message = f""">>> **Server Status:** `ONLINE`
+        message = f""">>> **Server Status:** `ONLINE`
 **IP:** `{address}`
 **Players:** `{status.players.online} / {status.players.max}`
 
 **Last Updated:** `{now.strftime("%m/%d/%Y, %H:%M:%S")}`"""
 
-    return message
+    except:
+        now = datetime.now()
 
-    
+        message = f""">>> **Server Status:** `OFFLINE`
+**IP:** `{address}`
+**Players:** `N/A`
+
+**Last Updated:** `{now.strftime("%m/%d/%Y, %H:%M:%S")}`"""
+    finally:
+        return message
+
+
+if __name__ == "__main__":
+    print(get_message_text())
